@@ -14,4 +14,4 @@
 source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613
 
-python -u /zhome/b0/3/214044/02613/Python-High-Performance-Computing/Week2/numpy_5.py /zhome/b0/3/214044/02613/Python-High-Performance-Computing/Week2/input.npy 10
+python -u numpy_5.py ./input.npy 10

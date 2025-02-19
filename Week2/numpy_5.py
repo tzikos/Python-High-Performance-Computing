@@ -3,19 +3,19 @@ import sys
 from time import perf_counter_ns
 
 def self_matrix_multiplication(mat, p):
+    new_mat = np.copy(mat)
+    for _ in range(p):
+        new_mat = np.matmul(new_mat, mat)
     
-    if p == 1:
-        return mat
-    else:
-        return np.dot(mat, self_matrix_multiplication(mat, p-1))
-    
+    return new_mat
+
     
 def main():
     
     path = sys.argv[1]
     mat = np.load(path)
     
-    p = int(sys.argv[2]) + 1
+    p = int(sys.argv[2])
     start_time = perf_counter_ns()
     result = self_matrix_multiplication(mat, p)
     end_time = perf_counter_ns()
