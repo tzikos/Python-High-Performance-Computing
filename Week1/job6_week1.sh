@@ -9,7 +9,7 @@
 #BSUB -N 
 #BSUB -R "select[model==XeonGold6226R]"
 #BSUB -R "span[hosts=1]"
-#BSUB -n 16
+#BSUB -n 64
 
 sleep 90
 lscpu | grep "Model name"
