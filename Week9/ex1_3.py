@@ -1,6 +1,7 @@
 import numpy as np
 from numba import jit
 import sys
+from time import perf_counter_ns
 
 @jit(nopython=True)
 def matmul(A, B):
@@ -17,7 +18,12 @@ if __name__=='__main__':
 
     matmul(np.random.rand(1,1),np.random.rand(1,1))
 
+    start_time = perf_counter_ns()
+
     A = np.random.rand(N, N)
     B = np.random.rand(N, N)
 
     result = matmul(A, B)
+    end_time = perf_counter_ns()
+    
+    print(f"{(end_time-start_time)/1e9:.2f} seconds")
